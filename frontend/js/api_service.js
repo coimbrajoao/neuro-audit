@@ -1,11 +1,11 @@
 class ApiService{
 
     
-    async static get() {
+     static async get(endpoint) {
         try{
-            const url = await fetch(endpoint)
+            const Response = await fetch(endpoint)
             
-            const data = await url.json();
+            const data = await Response.json();
 
             return data;
         }catch(error){
@@ -14,9 +14,9 @@ class ApiService{
     }
     
 
-    async static post(endpoint, payload){
+    static async  post(endpoint, payload){
         try{
-            const url = await fetch(endpoint, {
+            const Response = await fetch(endpoint, {
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ class ApiService{
                 BODY: JSON.stringify(payload)
             })
 
-            const dados = await url.JSON();
+            const dados = await Response.JSON();
 
             return data;
 
@@ -36,4 +36,4 @@ class ApiService{
     
 }
 
-export default ExportApiService;
+export default ApiService;
